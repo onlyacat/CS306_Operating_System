@@ -1,0 +1,8 @@
+# CS306_Operating_System
+.idea
+.vscode
+*.pdf
+*.build
+*.dox
+*.doc
+*.docx
