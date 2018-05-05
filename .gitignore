@@ -1,5 +1,7 @@
 # CS306_Operating_System
 .idea
+cmake-build-debug
+CMakeFiles
 .vscode
 *.pdf
 *.build

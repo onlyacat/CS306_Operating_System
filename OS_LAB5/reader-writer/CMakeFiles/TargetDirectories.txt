@@ -1,3 +1,0 @@
-/home/cat/OS_LAB5/reader-writer/CMakeFiles/edit_cache.dir
-/home/cat/OS_LAB5/reader-writer/CMakeFiles/rebuild_cache.dir
-/home/cat/OS_LAB5/reader-writer/CMakeFiles/reader_writer.dir
