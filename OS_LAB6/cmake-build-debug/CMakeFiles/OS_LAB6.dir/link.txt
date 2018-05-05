@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -pthread CMakeFiles/OS_LAB6.dir/mm.cpp.o  -o OS_LAB6 
