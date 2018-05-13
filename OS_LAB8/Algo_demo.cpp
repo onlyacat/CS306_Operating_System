@@ -36,18 +36,17 @@ int main(){
     //generate_input();
     //return 0;
     int op;
+    print_menu();
     while (cin >> op){
-        print_menu();
         switch (op){
             case 1: set_cache_size(); break;
             case 2: set_algorithm(); break;
             case 3: add_an_algorithm(); break;
             case 4: run_algorithm(); break;
             case 5: read_pages(); break;
-            case 233: cout << "Bye..." << endl; sleep(1000); return 0;
+            case 233: cout << "Bye..." << endl; return 0;
             default: break;
         }
-        sleep(1000);
     }
 }
 
@@ -98,16 +97,13 @@ void init(){
     algorithms.clear(); pages.clear();
     cout << "Setting the default cache size..." << endl;
     cache_size = DEFAULT_CACHE_SIZE;
-    sleep(1000);
     cout << "Setting the default algorithm..." << endl;
     string s = "FIFO";
     algorithms.push_back(make_pair(DEFAULT_ALGORITHM, s));
     s = "LRU";
     algorithms.push_back(make_pair(DEFAULT_ALGORITHM + 1, s));
     working_algorithm = 0;
-    sleep(1000);
     cout << "Setting the environment..." << endl;
-    sleep(1000);
     cout << "Setting successfully" << endl;
 }
 
@@ -173,6 +169,34 @@ void add_an_algorithm(){
 }
 
 void FIFO_algorithm(){
+    hit = miss = 0;
+    list<int> l;
+    l.clear();
+    for (auto &x:pages){
+        if(l.empty()){
+            miss++;
+            l.push_front(x);
+            continue;
+        }
+        bool flag = false;
+        for (auto &y : l){
+            if(y==x){
+                flag = true;
+                l.remove(y);
+                l.push_front(x);
+                break;
+            }
+        }
+        if(flag){
+            hit++;
+            continue;
+        }
+        miss++;
+        if(l.size() == cache_size){
+            l.pop_back();
+        }
+        l.push_front(x);
+    }
 }
 
 
